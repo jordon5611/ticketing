@@ -1,9 +1,11 @@
-name: NodeJS with Grunt
+name: authNpm
 
 on:
   push:
     branches: [ "main" ]
   pull_request:
+    paths:
+      - 'auth/**'
     branches: [ "main" ]
 
 jobs:
@@ -17,13 +19,7 @@ jobs:
     steps:
     - uses: actions/checkout@v3
 
-    - name: Use Node.js ${{ matrix.node-version }}
-      uses: actions/setup-node@v3
-      with:
-        node-version: ${{ matrix.node-version }}
-
     - name: Build
       run: |
         cd auth
         npm install
-        grunt
