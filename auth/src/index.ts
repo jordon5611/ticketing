@@ -4,6 +4,7 @@ import { app } from "./app";
 
 const port = 2000;
 const start = async () => {
+  console.log('Starting Auth');
   if (!process.env.JWT_KEY) {
     throw new Error("No Secret found");
   }
